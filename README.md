@@ -4,7 +4,7 @@ A curated collection of PET/CT vision-language models, datasets, benchmarks, and
 
 收集 PET/CT 视觉语言模型的论文、数据集、模型与开源代码，持续跟踪最新进展及资源发布状态。
 
-Resource status checked: **2026-10-10**. Papers are grouped by task, with newer publication years first within each group. This is a growing collection rather than an exhaustive survey.
+Resource status checked: **2026-10-11**. Papers are grouped by task, with newer publication years first within each group. This is a growing collection rather than an exhaustive survey.
 
 ## Contents
 
@@ -36,7 +36,7 @@ The main collection includes work that explicitly studies PET or paired PET/CT w
 | Year / venue | Work | Input and focus | Paper | Implementation and release |
 | --- | --- | --- | --- | --- |
 | 2026 / CVPR Findings | **PETRG-3D — Vision-Language Models for Automated 3D PET/CT Report Generation** | Paired 3D PET/CT volumes; structured Chinese reports; shared 3D visual encoder, modality-specific projectors, and LoRA language adaptation. | [arXiv](https://arxiv.org/abs/2511.20145) | [Code](https://github.com/Jorwnpay/PETRG-3D), [Qwen3-8B checkpoint](https://huggingface.co/jwppku/PETRG-3D-qwen3-8B), and [AutoPET-RG-Lym](https://huggingface.co/datasets/jwppku/AutoPET-RG-Lym) available. The public lymphoma benchmark is a subset, not the entire clinical cohort studied in the paper. |
-| 2026 / ACL | **HiRRA / VietPET-RoI — Region-Grounded Report Generation for 3D Medical Imaging** | Paired 3D PET/CT; hierarchical region and RoI features for Vietnamese reporting. Introduces RoI Coverage and RoI Quality Index. | [ACL Anthology](https://aclanthology.org/2026.acl-long.903/) | Paper states code/data availability, but a working official release link was not verified. See the release watchlist. |
+| 2026 / ACL | **HiRRA / VietPET-RoI — Region-Grounded Report Generation for 3D Medical Imaging** | Paired 3D PET/CT; hierarchical region and RoI features for Vietnamese reporting. Introduces RoI Coverage and RoI Quality Index. | [ACL Anthology](https://aclanthology.org/2026.acl-long.903/) | [VietPET-RoI data](https://huggingface.co/datasets/b00l26/VietPET-RoI) available, including image volumes, regional reports, and RoI annotations. Official HiRRA model implementation/checkpoints not verified. |
 | 2026 / AAAI | **PET2Rep** | Whole-body PET/CT report-generation benchmark; evaluates general VLMs using slice-based visual inputs and prompting. | [arXiv](https://arxiv.org/abs/2508.04062) | [Code, prompts, and results](https://github.com/YichiZhang98/PET2Rep) available; [benchmark data](https://huggingface.co/datasets/r1pples/PET2Rep) gated. Distinguish slice-based evaluation from native 3D model training. |
 | 2025 / NeurIPS Datasets and Benchmarks | **ViPET-ReportGen / ViMed-PET — Toward a Vision-Language Foundation Model for Medical Data** | Vietnamese PET/CT-report data; volumetric alignment, report generation, and conversational/VQA benchmarks. | [Paper](https://proceedings.neurips.cc/paper_files/paper/2025/file/a9f5ebadfbf7b6b10d685c385713b35a-Paper-Datasets_and_Benchmarks_Track.pdf) | [Code](https://github.com/AIoT-Lab-AI4LIFE/ViPET-ReportGen) and [multipart data index](https://huggingface.co/datasets/dacthai2807/ViMed-PET) available. Verify coverage of individual parts; the index itself contains links rather than scan volumes. |
 
@@ -75,6 +75,7 @@ These studies connect language models to imaging tools. A pipeline that passes m
 
 | Year / venue | Work | Input and focus | Paper | Implementation and release |
 | --- | --- | --- | --- | --- |
+| 2026 / arXiv preprint | **VLM- and LLM-Driven Multi-Agent System for PET Image Denoising** | Low-dose FDG PET/CT; slice-based BiomedCLIP dose estimation, image/lesion measurements, and an LLM scheduler selecting diffusion denoisers with quantitative feedback and rollback. | [arXiv](https://arxiv.org/abs/2608.13791) | Official pipeline code, adapted weights, and the clinical low-dose cohort not verified as downloadable. The scheduler receives structured perception outputs; this is tool-assisted restoration rather than native volumetric VLM reporting. |
 | 2026 / MICCAI | **RADIANT-PET** | PET/CT segmentation and candidate-feature extraction followed by LLM lesion reasoning; includes local LLM adaptation. | [arXiv](https://arxiv.org/abs/2606.28392) | [Code](https://github.com/jwang-580/RADIANT-PET) available. The reasoning stage consumes structured lesion features; do not equate this with direct volumetric VLM encoding. |
 | 2026 / Journal of Nuclear Medicine | **End-to-End PET/CT Interpretation and Quantification with an LLM-Orchestrated AI Agent: A Real-World Pilot Study** | Tool orchestration for image selection, registration, SUV conversion, segmentation, visual interpretation, and reporting; retrospective FDG PET/CT lung-cancer pilot. | [PubMed](https://pubmed.ncbi.nlm.nih.gov/42315314/), [DOI](https://doi.org/10.2967/jnumed.126.272362) | Official code and model release not verified. |
 
@@ -91,7 +92,7 @@ Counts describe the unit reported by the source. Patients, examinations, region 
 | [PETARSeg-11K](https://huggingface.co/datasets/UW-Madison-Dept-Radiology/PETARSeg-11K) | PET/CT lesion descriptions paired with 3D masks; lesion captioning and grounding. | 11,356 description-mask pairs reported in the paper; these are not patient counts. | Manual researcher approval; non-commercial academic/institutional research agreement. |
 | [ViMed-PET](https://huggingface.co/datasets/dacthai2807/ViMed-PET) | Vietnamese PET/CT-report pairs; report generation and conversational/VQA tasks. | Paper reports 2,757 studies; expanded text/conversation counts are separate units. | Public index to three release parts, including [Part 2](https://huggingface.co/datasets/Duc2305/ViMed-PET-part2) with image archives and report mappings. Check each part for coverage and terms. |
 | [MetaStructAtlas](https://huggingface.co/datasets/withtst/MetaStructAtlas) | Hierarchical Chinese/English PET/CT QA for anatomical and metabolic reasoning. | Public Chinese and English QA tables. | **Partial**: annotation tables verified; full paired image volumes not verified. |
-| [VietPET-RoI](https://aclanthology.org/2026.acl-long.903/) | Vietnamese reports and region/RoI descriptions paired with 3D PET/CT. | 200 patients, 600 region-level samples, 1,960 RoIs reported in the paper. | Paper announces a research release; working official data endpoint not verified. |
+| [VietPET-RoI](https://huggingface.co/datasets/b00l26/VietPET-RoI) | Cropped 3D PET/CT, Vietnamese regional reports, and modality-specific RoI bounding boxes. | Dataset card lists 200 patients, 600 region pairs, and 1,960 RoIs; patient-disjoint 160/40 train/validation split. | Public volume files, reports, manifests, and RoI annotations verified; CC BY-NC-SA 4.0. The card documents stale `_processed.npy` paths in split RoI files, missing physical-space geometry in manifests, and PET values that should not be assumed to be SUV. |
 | [Med-StepBench](https://www.ijcai.org/proceedings/2026/761) | Stepwise image-statement evaluation of PET/CT reasoning and hallucination. | Paper reports over 12K images and over 1M image-statement pairs; these are not patient counts. | Release announced; downloadable benchmark not verified. |
 
 ### Supporting imaging datasets
@@ -124,17 +125,18 @@ When comparing results, record the tracer, patient-level split, report language,
 
 ## Release watchlist
 
-Checked **2026-10-10**. Update these rows when official artifacts or access conditions change; an accepted paper or an “open-source” statement alone does not establish a usable release.
+Checked **2026-10-11**. Update these rows when official artifacts or access conditions change; an accepted paper or an “open-source” statement alone does not establish a usable release.
 
 | Resource | What to verify next | Primary source |
 | --- | --- | --- |
-| HiRRA / VietPET-RoI | Locate and inspect the official code/data release referenced by the paper. | [ACL paper](https://aclanthology.org/2026.acl-long.903/) |
+| HiRRA | Locate and inspect the model implementation/checkpoints; VietPET-RoI image/report/RoI data are now verified as released. | [ACL paper](https://aclanthology.org/2026.acl-long.903/), [dataset](https://huggingface.co/datasets/b00l26/VietPET-RoI) |
 | PETCT-DiVLA | Check for the announced model weights. | [Official repository](https://github.com/Linn60/PETCT-DiVLA) |
 | PETAR | Check for the announced preprocessing additions and model checkpoint availability. | [Official repository](https://github.com/DanyalMaq/petar-release) |
 | MetaStructAtlas | Verify access to complete PET/CT volumes paired with the released QA annotations. | [Dataset](https://huggingface.co/datasets/withtst/MetaStructAtlas) |
 | Med-StepBench | Verify the benchmark's promised downloadable release. | [IJCAI paper](https://www.ijcai.org/proceedings/2026/761) |
 | Unified PSMA PET/CT VLM | Locate official model code/weights and clarify access to the paired report cohort. | [Paper](https://arxiv.org/abs/2609.15603) |
 | PET-CLIP Captioner | Locate official implementation, checkpoints, or paired lesion-caption data. | [MICCAI paper](https://papers.miccai.org/miccai-2025/paper/0248_paper.pdf) |
+| PET denoising multi-agent system | Locate official pipeline code, adapted weights, or a release/access statement for the paired low-dose cohort. | [Paper](https://arxiv.org/abs/2608.13791) |
 
 ## Related collections
 
