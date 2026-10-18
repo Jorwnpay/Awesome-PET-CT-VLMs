@@ -4,11 +4,12 @@ A curated collection of PET/CT vision-language models, datasets, benchmarks, and
 
 收集 PET/CT 视觉语言模型的论文、数据集、模型与开源代码，持续跟踪最新进展及资源发布状态。
 
-Resource status checked: **2026-10-11**. Papers are grouped by task, with newer publication years first within each group. This is a growing collection rather than an exhaustive survey.
+Resource status checked: **2026-10-18**. Papers are grouped by task, with newer publication years first within each group. This is a growing collection rather than an exhaustive survey.
 
 ## Contents
 
 - [Scope and release status](#scope-and-release-status)
+- [Surveys and perspectives](#surveys-and-perspectives)
 - [PET/CT papers and models](#petct-papers-and-models)
   - [Report generation](#report-generation)
   - [Image-text alignment and retrieval](#image-text-alignment-and-retrieval)
@@ -28,6 +29,12 @@ Resource status checked: **2026-10-11**. Papers are grouped by task, with newer 
 The main collection includes work that explicitly studies PET or paired PET/CT with language. General 3D medical and CT foundations appear in a separate section as potential starting points for transfer. PET image classifiers without language supervision and general medical chatbots without a documented PET/CT experiment are outside the main scope.
 
 **Code available** means implementation files were found, not that the implementation was executed or independently reproduced. **Partial** means only some artifacts are public. **Gated** means access requires accepting conditions or obtaining approval. **Pending** means a release is announced. **Not verified** means no accessible official artifact was confirmed; it does not establish that an artifact does not exist. Check the linked source for current terms and dependencies.
+
+## Surveys and perspectives
+
+| Date / venue | Review | Focus and scope | Source |
+| --- | --- | --- | --- |
+| 2026-10-08 / Frontiers in Nuclear Medicine | **From task-specific AI to multimodal foundation models in PET/CT: a readiness framework for clinical translation** | Narrative review of PET/CT pretrained representations, image-text grounding, reporting, and agentic workflows, covering literature through July 2026. Introduces MOSAIC-PET, a proposed heuristic evaluation framework whose thresholds and clinical-readiness interpretation have not been formally validated. | [Published review](https://www.frontiersin.org/journals/nuclear-medicine/articles/10.3389/fnume.2026.1956567/full), [DOI](https://doi.org/10.3389/fnume.2026.1956567) |
 
 ## PET/CT papers and models
 
