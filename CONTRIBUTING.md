@@ -4,7 +4,7 @@ This collection tracks PET/CT vision-language research and resources. Contributi
 
 ## Inclusion criteria
 
-- Main entries must explicitly study PET or paired PET/CT together with language: alignment/retrieval, reporting, captioning, VQA, grounding, language-guided segmentation, or an imaging-and-language agent.
+- Main entries must explicitly study PET or paired PET/CT together with language: alignment/retrieval, reporting, captioning, VQA, grounding, language-guided segmentation, image-language diagnosis/prognosis, or an imaging-and-language agent.
 - Put CT-only foundations in the transfer section and describe their original modality. Do not infer PET/CT evaluation from a general medical VLM release.
 - For agents, state whether the language model sees images, volumetric embeddings, tool outputs, measured lesion features, or only text.
 - Cite the original paper, publisher/proceedings page, author repository, or official data/model release. Other awesome lists are discovery aids rather than evidence of release status.
@@ -19,6 +19,7 @@ This collection tracks PET/CT vision-language research and resources. Contributi
 4. Mark code, weights, and data independently. Use **available**, **partial**, **gated**, **pending**, or **not verified**, with the specific limitation and a source link.
 5. Record application requirements and stated use restrictions concisely. Do not accept access terms or redistribute restricted data as part of maintaining this list.
 6. For generated language annotations or LLM-judged benchmarks, describe that provenance when established by the source.
+   For diagnostic/prognostic models, distinguish free-text reports from template-serialized annotations or clinical attributes and identify which experiments use PET/CT versus CT-only cohorts.
 7. Check for an existing paper/project under another name, normalize URLs, and keep links pointed at the actual artifact rather than a search-results page.
 
 ## Entry templates

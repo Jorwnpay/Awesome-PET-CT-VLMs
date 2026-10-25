@@ -4,7 +4,7 @@ A curated collection of PET/CT vision-language models, datasets, benchmarks, and
 
 收集 PET/CT 视觉语言模型的论文、数据集、模型与开源代码，持续跟踪最新进展及资源发布状态。
 
-Resource status checked: **2026-10-18**. Papers are grouped by task, with newer publication years first within each group. This is a growing collection rather than an exhaustive survey.
+Resource status checked: **2026-10-25**. Papers are grouped by task, with newer publication years first within each group. This is a growing collection rather than an exhaustive survey.
 
 ## Contents
 
@@ -15,6 +15,7 @@ Resource status checked: **2026-10-18**. Papers are grouped by task, with newer 
   - [Image-text alignment and retrieval](#image-text-alignment-and-retrieval)
   - [Visual grounding and lesion captioning](#visual-grounding-and-lesion-captioning)
   - [Visual question answering and multitask models](#visual-question-answering-and-multitask-models)
+  - [Image-language diagnosis and prognosis](#image-language-diagnosis-and-prognosis)
   - [Evaluation and hallucination benchmarks](#evaluation-and-hallucination-benchmarks)
   - [Agents and tool-assisted reasoning](#agents-and-tool-assisted-reasoning)
 - [Datasets](#datasets)
@@ -42,6 +43,7 @@ The main collection includes work that explicitly studies PET or paired PET/CT w
 
 | Year / venue | Work | Input and focus | Paper | Implementation and release |
 | --- | --- | --- | --- | --- |
+| 2026 / Research | **RIDE — TNM-Accountable Whole-Body 3D FDG PET/CT Report Drafting** | Paired 3D PET/CT for lung-cancer reports; structured impressions and organ-wise exemplar retrieval. The paper reports 1,583 patients, with 520 held-out cases including 276 external cases. | [Paper](https://pmc.ncbi.nlm.nih.gov/articles/PMC13385537/), [DOI](https://doi.org/10.34133/research.1343) | **Partial**: [PETCT2rep demo code](https://github.com/hugowang010406/PETCT2rep) and a [demo checkpoint](https://github.com/hugowang010406/PETCT2rep/releases/tag/weight) are public. The repository explicitly simplifies training, labels, and retrieval resources. Clinical data are by request; proprietary pretraining data are not public. |
 | 2026 / CVPR Findings | **PETRG-3D — Vision-Language Models for Automated 3D PET/CT Report Generation** | Paired 3D PET/CT volumes; structured Chinese reports; shared 3D visual encoder, modality-specific projectors, and LoRA language adaptation. | [arXiv](https://arxiv.org/abs/2511.20145) | [Code](https://github.com/Jorwnpay/PETRG-3D), [Qwen3-8B checkpoint](https://huggingface.co/jwppku/PETRG-3D-qwen3-8B), and [AutoPET-RG-Lym](https://huggingface.co/datasets/jwppku/AutoPET-RG-Lym) available. The public lymphoma benchmark is a subset, not the entire clinical cohort studied in the paper. |
 | 2026 / ACL | **HiRRA / VietPET-RoI — Region-Grounded Report Generation for 3D Medical Imaging** | Paired 3D PET/CT; hierarchical region and RoI features for Vietnamese reporting. Introduces RoI Coverage and RoI Quality Index. | [ACL Anthology](https://aclanthology.org/2026.acl-long.903/) | [VietPET-RoI data](https://huggingface.co/datasets/b00l26/VietPET-RoI) available, including image volumes, regional reports, and RoI annotations. Official HiRRA model implementation/checkpoints not verified. |
 | 2026 / AAAI | **PET2Rep** | Whole-body PET/CT report-generation benchmark; evaluates general VLMs using slice-based visual inputs and prompting. | [arXiv](https://arxiv.org/abs/2508.04062) | [Code, prompts, and results](https://github.com/YichiZhang98/PET2Rep) available; [benchmark data](https://huggingface.co/datasets/r1pples/PET2Rep) gated. Distinguish slice-based evaluation from native 3D model training. |
@@ -53,7 +55,7 @@ The unified PSMA PET/CT model below also studies report generation alongside VQA
 
 | Year / venue | Work | Input and focus | Paper | Implementation and release |
 | --- | --- | --- | --- | --- |
-| 2026 / MICCAI | **PETCT-DiVLA — Semantic-Consistent Dual-Image Vision-Language Alignment via Modality Routing for 3D PET/CT** | Paired 3D PET/CT and reports; modality routing for global/local alignment, retrieval, and classification. | [MICCAI](https://papers.miccai.org/miccai-2026/0946-Paper5633.html) | [Code](https://github.com/Linn60/PETCT-DiVLA) available; repository says model weights will be released. |
+| 2026 / MICCAI | **PETCT-DiVLA — Semantic-Consistent Dual-Image Vision-Language Alignment via Modality Routing for 3D PET/CT** | Paired 3D PET/CT and reports; modality routing for global/local alignment, retrieval, and classification. | [MICCAI](https://papers.miccai.org/miccai-2026/0946-Paper5633.html) | [Code](https://github.com/Linn60/PETCT-DiVLA) and [pretrained weights](https://huggingface.co/Linn60/PETCT-DiVLA) available. Hugging Face provides the model configuration and checkpoint; this release does not establish public availability of the paired clinical training cohort. |
 
 ### Visual grounding and lesion captioning
 
@@ -69,6 +71,12 @@ The unified PSMA PET/CT model below also studies report generation alongside VQA
 | --- | --- | --- | --- | --- |
 | 2026 / arXiv preprint | **A Unified Vision-Language Model for PSMA PET/CT Report Generation, Visual Question Answering, and Lesion Segmentation** | 3D PSMA PET/CT; a shared multimodal framework for reports, VQA, and segmentation. | [arXiv](https://arxiv.org/abs/2609.15603) | Official model code/weights not verified. Institutional paired reports are available by qualified request and approval; a public segmentation dataset used in experiments does not make the report cohort public. |
 | 2026 / arXiv preprint | **MetaStructAtlas / MetaStructVQA** | Whole-body PET/CT; grounded anatomical and metabolic reasoning with hierarchical Chinese/English QA. | [arXiv](https://arxiv.org/abs/2609.03690) | [Data-building/evaluation code](https://github.com/withtst/MetaStructVQA) and [QA tables](https://huggingface.co/datasets/withtst/MetaStructAtlas) available. Complete paired PET/CT volumes were not verified in the public dataset files. |
+
+### Image-language diagnosis and prognosis
+
+| Year / venue | Work | Input and focus | Paper | Implementation and release |
+| --- | --- | --- | --- | --- |
+| 2026 / npj Digital Medicine | **VITALIS — Graphicalized vision-language modeling for comprehensive lung nodule analysis and risk stratification** | CT/PET slice or subvolume features and structured radiology/clinical text; graph-aware fusion and latent neural-ODE dynamics support nodule detection, malignancy assessment, survival-risk estimation, and nodule counting. Language inputs include template-serialized annotations and clinical attributes. | [Paper](https://doi.org/10.1038/s41746-026-02602-9), [PubMed](https://pubmed.ncbi.nlm.nih.gov/41965884/) | The paper links a [review repository](https://anonymous.4open.science/r/VITALIS-5E6A); accessible implementation files and released weights were not verified. Experiments use both CT-only and PET/CT cohorts; these should not be treated as one shared paired-report dataset. |
 
 ### Evaluation and hallucination benchmarks
 
@@ -132,18 +140,18 @@ When comparing results, record the tracer, patient-level split, report language,
 
 ## Release watchlist
 
-Checked **2026-10-11**. Update these rows when official artifacts or access conditions change; an accepted paper or an “open-source” statement alone does not establish a usable release.
+Checked **2026-10-25**. Update these rows when official artifacts or access conditions change; an accepted paper or an “open-source” statement alone does not establish a usable release.
 
 | Resource | What to verify next | Primary source |
 | --- | --- | --- |
 | HiRRA | Locate and inspect the model implementation/checkpoints; VietPET-RoI image/report/RoI data are now verified as released. | [ACL paper](https://aclanthology.org/2026.acl-long.903/), [dataset](https://huggingface.co/datasets/b00l26/VietPET-RoI) |
-| PETCT-DiVLA | Check for the announced model weights. | [Official repository](https://github.com/Linn60/PETCT-DiVLA) |
 | PETAR | Check for the announced preprocessing additions and model checkpoint availability. | [Official repository](https://github.com/DanyalMaq/petar-release) |
 | MetaStructAtlas | Verify access to complete PET/CT volumes paired with the released QA annotations. | [Dataset](https://huggingface.co/datasets/withtst/MetaStructAtlas) |
 | Med-StepBench | Verify the benchmark's promised downloadable release. | [IJCAI paper](https://www.ijcai.org/proceedings/2026/761) |
 | Unified PSMA PET/CT VLM | Locate official model code/weights and clarify access to the paired report cohort. | [Paper](https://arxiv.org/abs/2609.15603) |
 | PET-CLIP Captioner | Locate official implementation, checkpoints, or paired lesion-caption data. | [MICCAI paper](https://papers.miccai.org/miccai-2025/paper/0248_paper.pdf) |
 | PET denoising multi-agent system | Locate official pipeline code, adapted weights, or a release/access statement for the paired low-dose cohort. | [Paper](https://arxiv.org/abs/2608.13791) |
+| RIDE / PETCT2rep | Check for the full research implementation and curated data promised by the paper; the current public repository identifies itself as a simplified demo. | [Paper](https://pmc.ncbi.nlm.nih.gov/articles/PMC13385537/), [repository](https://github.com/hugowang010406/PETCT2rep) |
 
 ## Related collections
 
