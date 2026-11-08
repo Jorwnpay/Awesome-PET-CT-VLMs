@@ -4,7 +4,7 @@ A curated collection of PET/CT vision-language models, datasets, benchmarks, and
 
 收集 PET/CT 视觉语言模型的论文、数据集、模型与开源代码，持续跟踪最新进展及资源发布状态。
 
-Resource status checked: **2026-11-02**. Papers are grouped by task, with newer publication years first within each group. This is a growing collection rather than an exhaustive survey.
+Resource status checked: **2026-11-08**. Papers are grouped by task, with newer publication years first within each group. This is a growing collection rather than an exhaustive survey.
 
 ## Contents
 
@@ -92,7 +92,7 @@ These studies connect language models to imaging tools. A pipeline that passes m
 | --- | --- | --- | --- | --- |
 | 2026 / arXiv preprint | **VLM- and LLM-Driven Multi-Agent System for PET Image Denoising** | Low-dose FDG PET/CT; slice-based BiomedCLIP dose estimation, image/lesion measurements, and an LLM scheduler selecting diffusion denoisers with quantitative feedback and rollback. | [arXiv](https://arxiv.org/abs/2608.13791) | Official pipeline code, adapted weights, and the clinical low-dose cohort not verified as downloadable. The scheduler receives structured perception outputs; this is tool-assisted restoration rather than native volumetric VLM reporting. |
 | 2026 / MICCAI | **RADIANT-PET** | 3D PET/CT candidate segmentation followed by LLM adjudication of structured uptake, shape, and anatomical features; GRPO adaptation of lesion reasoning. The LLM receives candidate descriptions rather than image volumes. | [MICCAI](https://papers.miccai.org/miccai-2026/0849-Paper2094.html), [arXiv](https://arxiv.org/abs/2606.28392) | [Preprocessing, training, and inference code](https://github.com/jwang-580/RADIANT-PET), [HS-UNet segmentation weights](https://zenodo.org/records/20775753), and [report-free AutoPET LoRA adapters](https://zenodo.org/records/20785543) available. The authors exclude the report-conditioned adapter trained on institutional data; patient images/reports are not included in this code/weight release. |
-| 2026 / Journal of Nuclear Medicine | **End-to-End PET/CT Interpretation and Quantification with an LLM-Orchestrated AI Agent: A Real-World Pilot Study** | Tool orchestration for image selection, registration, SUV conversion, segmentation, visual interpretation, and reporting; retrospective FDG PET/CT lung-cancer pilot. | [PubMed](https://pubmed.ncbi.nlm.nih.gov/42315314/), [DOI](https://doi.org/10.2967/jnumed.126.272362) | Official code and model release not verified. |
+| 2026 / Journal of Nuclear Medicine | **End-to-End PET/CT Interpretation and Quantification with an LLM-Orchestrated AI Agent: A Real-World Pilot Study** | A text-only LLM orchestrates DICOM selection, registration, SUV conversion, segmentation, and quantification. A vision-enabled LLM interprets rendered 2D whole-body PET maximum-intensity projections, multiplanar PET/CT fusion slices, and mask overlays for draft reporting; retrospective FDG PET/CT lung-cancer pilot with 170 patients. | [PubMed](https://pubmed.ncbi.nlm.nih.gov/42315314/), [DOI](https://doi.org/10.2967/jnumed.126.272362) | Official code and model release not verified. |
 
 ## Datasets
 
